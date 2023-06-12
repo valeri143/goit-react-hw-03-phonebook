@@ -8,13 +8,15 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: ''
-}
+  }
+  
   componentDidMount = () => {
-  const savedContacts = localStorage.getItem(LS_KEY)
-  if(savedContacts.length){
-    this.setState({contacts: JSON.parse(savedContacts)})
+  const savedContacts = localStorage.getItem(LS_KEY);
+  if (savedContacts) {
+    this.setState({ contacts: JSON.parse(savedContacts) });
   }
-  }
+  };
+
   componentDidUpdate = (_, prevState) => {
   const {contacts} = this.state;
   if(prevState.contacts !== contacts){
