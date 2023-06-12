@@ -9,10 +9,10 @@ export class App extends Component {
     contacts: [],
     filter: ''
   }
-  
+
   componentDidMount = () => {
   const savedContacts = localStorage.getItem(LS_KEY);
-  if (savedContacts) {
+  if (savedContacts && savedContacts.length) {
     this.setState({ contacts: JSON.parse(savedContacts) });
   }
   };
